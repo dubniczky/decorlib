@@ -52,6 +52,13 @@ def todo(func):
     return wrapper
 
 
+def todo_count() -> int:
+    '''
+    Returns the number of functions marked as todo.
+    '''
+    return todo_counter
+
+
 def repeat(count : int = 1, delay : float = None):
     '''
     Creates a decorator that runs the function `count` times, with any seconds of delay. If the `delay` is set to `None`, the sleep method is not called to prevent context switching in the background.
