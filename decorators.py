@@ -122,7 +122,7 @@ def ignore(exception : Exception = Exception, default = None):
         return wrapper
     return decorator
 
-def limit_frequency(time_limit : float = 1.0, *, default = None, return_last : bool = False):
+def throttle(time_limit : float = 1.0, *, default = None, return_last : bool = False):
     '''
     Limits the execution frequency of the function to a certain time.
     Returns the result of the called function, or the last value if it's enabled, default value if it's disabled
@@ -150,14 +150,3 @@ def limit_frequency(time_limit : float = 1.0, *, default = None, return_last : b
             
         return wrapper
     return decorator
-
-
-
-@limit_frequency()
-def asd(a):
-    print(a)
-    return a
-    
-print(asd('1'))
-print(asd('2'))
-print(asd('3'))
