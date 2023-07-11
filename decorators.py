@@ -122,6 +122,7 @@ def ignore(exception : Exception = Exception, default = None):
         return wrapper
     return decorator
 
+
 def throttle(time_limit : float = 1.0, *, default = None, return_last : bool = False):
     '''
     Limits the execution frequency of the function to a certain time.
@@ -148,5 +149,23 @@ def throttle(time_limit : float = 1.0, *, default = None, return_last : bool = F
             finally:
                 last_called = now
             
+        return wrapper
+    return decorator
+
+
+def callcounter():
+    '''
+    Adds a new parameter to all functions called `callcount` that counts the number of calls.
+    Returs the result of the called function.
+    '''
+    
+    counter = 0
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            nonlocal counter
+            counter += 1
+            kwargs['callcount'] = counter
+            return func(*args, **kwargs)
         return wrapper
     return decorator
