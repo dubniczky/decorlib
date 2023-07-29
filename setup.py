@@ -1,9 +1,6 @@
 from setuptools import setup, find_packages
 
 
-with open("readme.md", "r") as f:
-    readme = f.read()
-
 setup(
     name = "decorlib",
     version = "0.1.1",
@@ -25,5 +22,5 @@ setup(
     include_package_data=True,
     python_requires='>=3.8',
     long_description_content_type='text/markdown',
-    long_description=readme
+    long_description="Python library with decorators for ease of development"
 )
