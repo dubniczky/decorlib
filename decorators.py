@@ -1,4 +1,5 @@
 import time
+import datetime
 import tracemalloc
 from functools import wraps
 
@@ -169,3 +170,25 @@ def callcounter():
             return func(*args, **kwargs)
         return wrapper
     return decorator
+
+
+def logger():
+    '''
+    Logs each call of the function to the terminal.
+    Returns the result of the called function.
+    '''
+    
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            res = func(*args, **kwargs)
+            print(f'{datetime.datetime.now()} {func.__name__}({args}, {kwargs}) -> {res}')
+            return res
+        return wrapper
+    return decorator
+
+@logger()
+def asd(a, x):
+    pass
+
+asd('asd', x=5)
