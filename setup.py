@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "decorlib",
-    version = "0.1.1",
+    version = "0.1.2",
     author = "Richard Antal Nagy",
     author_email="nagy.richard.antal@gmail.com",
     description="Python library with decorators for ease of development",
