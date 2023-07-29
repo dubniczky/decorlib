@@ -186,9 +186,3 @@ def logger():
             return res
         return wrapper
     return decorator
-
-@logger()
-def asd(a, x):
-    pass
-
-asd('asd', x=5)
